@@ -5,8 +5,9 @@ pkg update
 termux-setup-storage
 pkg install proot-distro pulseaudio termux-x11-nightly
 
-# Download distro
-proot-distro install debian
+# Steam setup
+cp steam.sh $PREFIX/etc/proot-distro/
+proot-distro install steam
 
 # virglrenderer + zink
 pkg install tur-repo

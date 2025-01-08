@@ -13,4 +13,4 @@ export PULSE_SERVER=unix:$PREFIX/tmp/pulse.sock
 MESA_LOADER_DRIVER_OVERRIDE=zink GALLIUM_DRIVER=zink ZINK_DESCRIPTORS=lazy virgl_test_server --use-egl-surfaceless &
 
 # Start proot
-proot-distro login debian --user user --shared-tmp
+proot-distro login steam --user root --shared-tmp
