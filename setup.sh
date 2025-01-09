@@ -3,6 +3,7 @@
 # Set up termux
 pkg update
 termux-setup-storage
+pkg install x11-repo
 pkg install proot-distro pulseaudio termux-x11-nightly
 
 # Steam setup

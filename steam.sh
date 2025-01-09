@@ -34,20 +34,12 @@ distro_setup() {
   run_proot_cmd box86/install_steam.sh
 
   # Steam launcher
-  run_proot_cmd cat <<EOF > /root/steam.sh
-  # /bin/bash
-
-  export DISPLAY=:0
-  export GALLIUM_DRIVER=zink
-  export MESA_GL_VERSION_OVERRIDE=4.0
-
-  openbox-session &
-  EOF
+  run_proot_cmd echo "#/bin/bash" >> /root/steam.sh
+  run_proot_cmd echo "export DISPLAY=:0 GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.0" >> /root/steam.sh
+  run_proot_cmd echo "openbox-session &" >> /root/steam.sh
 
   run_proot_cmd chmod +x /root/steam.sh
 
   # Openbox config
-  run_proot_cmd cat <<EOF > /etc/xdg/openbox/autostart.sh
-  steam &
-  EOF
+  run_proot_cmd echo "steam &" > /etc/xdg/openbox/autostart
 }
