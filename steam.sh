@@ -13,7 +13,7 @@ distro_setup() {
   run_proot_cmd apt-get upgrade -y
 
   # Utils
-  run_proot_cmd apt-get install wget git sudo -y
+  run_proot_cmd apt-get install wget git sudo gpg -y
 
   # Openbox
   run_proot_cmd apt-get install openbox -y
@@ -32,4 +32,20 @@ distro_setup() {
   # Steam
   run_proot_cmd git clone https://github.com/ptitSeb/box86
   run_proot_cmd box86/install_steam.sh
+
+  # Steam launcher
+  run_proot_cmd cat <<EOF > /root/steam.sh
+  # /bin/bash
+
+  export DISPLAY=:0
+  export GALLIUM_DRIVER=zink
+  export MESA_GL_VERSION_OVERRIDE=4.0
+
+  openbox-session &
+  EOF
+
+  # Openbox config
+  run_proot_cmd cat <<EOF > /etc/xdg/openbox/autostart.sh
+  steam &
+  EOF
 }
