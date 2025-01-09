@@ -44,6 +44,8 @@ distro_setup() {
   openbox-session &
   EOF
 
+  run_proot_cmd chmod +x /root/steam.sh
+
   # Openbox config
   run_proot_cmd cat <<EOF > /etc/xdg/openbox/autostart.sh
   steam &
