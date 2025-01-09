@@ -20,4 +20,4 @@ sleep 3
 MESA_LOADER_DRIVER_OVERRIDE=zink GALLIUM_DRIVER=zink ZINK_DESCRIPTORS=lazy virgl_test_server --use-egl-surfaceless &
 
 # Start proot
-proot-distro login steam --user root --shared-tmp
+proot-distro login steam --user root --shared-tmp -- /root/steam.sh
